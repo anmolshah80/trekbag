@@ -1,13 +1,33 @@
 import Button from '@/components/Button';
 
-import { SECONDARY_BUTTON_TEXTS } from '@/lib/constants';
-
-const ButtonGroup = () => {
+const ButtonGroup = ({
+  handleRemoveAllItems,
+  handleResetToInitial,
+  handleMarkAllAsComplete,
+  handleMarkAllAsIncomplete,
+}) => {
   return (
     <section className="button-group">
-      {SECONDARY_BUTTON_TEXTS.map((text) => (
-        <Button key={text} type="secondary" text={text} />
-      ))}
+      <Button
+        buttonType="secondary"
+        text="Mark all as complete"
+        onClick={handleMarkAllAsComplete}
+      />
+      <Button
+        buttonType="secondary"
+        text="Mark all as incomplete"
+        onClick={handleMarkAllAsIncomplete}
+      />
+      <Button
+        buttonType="secondary"
+        text="Reset to initial"
+        onClick={handleResetToInitial}
+      />
+      <Button
+        buttonType="secondary"
+        text="Remove all items"
+        onClick={handleRemoveAllItems}
+      />
     </section>
   );
 };

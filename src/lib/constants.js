@@ -16,11 +16,4 @@ const INITIAL_ITEMS = [
   },
 ];
 
-const SECONDARY_BUTTON_TEXTS = [
-  'Mark all as complete',
-  'Mark all as incomplete',
-  'Reset to initial',
-  'Remove all items',
-];
-
-export { INITIAL_ITEMS, SECONDARY_BUTTON_TEXTS };
+export { INITIAL_ITEMS };

@@ -29,6 +29,7 @@ body {
   background-color: #f1d4b3;
   overflow: hidden;
   color: #292218;
+  margin-block: 0.3rem 1rem;
 }
 
 #root {
@@ -73,8 +74,7 @@ header {
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   background-color: #fff;
-  overflow-y: scroll;
-  scrollbar-color: red orange;
+  overflow: hidden auto;
   scrollbar-width: thin;
   position: relative;
 }
@@ -114,7 +114,7 @@ header {
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 28px;
+  padding: 0 0 0 28px;
 }
 
 label > span {
@@ -158,17 +158,13 @@ label > label {
 }
 
 .item > button {
-  font-size: 13px;
-  text-transform: uppercase;
-  position: absolute;
-  right: 28px;
-  top: 0;
   color: #231d15;
   height: 100%;
   transition: all 0.1s;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
 }
 
 .item > button:hover,
@@ -257,13 +253,13 @@ form > input::placeholder {
 }
 
 h1 {
-  font-size: 128px;
+  font-size: 90px;
   font-weight: 600;
   color: rgba(0, 0, 0, 0.05);
-  position: absolute;
+  /* position: absolute;
   top: 7.5%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); */
   z-index: -1;
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -317,4 +313,18 @@ footer {
   color: crimson;
   font-size: 1rem;
   margin-bottom: 0.5rem;
+}
+
+.empty-list {
+  font-weight: bold;
+  font-style: italic;
+  color: #ff6347;
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #fff4f4;
+}
+
+.text-strike {
+  text-decoration: line-through;
+  font-style: italic;
 }
