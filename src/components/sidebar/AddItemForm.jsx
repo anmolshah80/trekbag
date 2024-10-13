@@ -6,28 +6,24 @@ const AddItemForm = ({ handleAddItems }) => {
   const inputRef = useRef(null);
 
   const [itemText, setItemText] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const inputField = inputRef.current;
-
-    // p tag for error message is the next node in the same parent container i.e., form
-    const paragraphElement = inputField.nextSibling;
-
     if (!itemText) {
-      inputField.classList.add('invalid-input');
-      paragraphElement.classList.add('error-message');
-      paragraphElement.textContent = 'Please enter an item to add';
+      setErrorMessage('Please enter an item to add');
 
       return;
     }
 
-    handleAddItems({
+    const newItem = {
       id: new Date().getTime(),
       name: itemText,
       packed: false,
-    });
+    };
+
+    handleAddItems(newItem);
 
     setItemText('');
 
@@ -37,12 +33,9 @@ const AddItemForm = ({ handleAddItems }) => {
   const handleChange = (event) => {
     setItemText(event.target.value);
 
-    const inputField = event.target;
-    const paragraphElement = event.target.nextSibling;
-
-    inputField.classList.remove('invalid-input');
-    paragraphElement.classList.remove('error-message');
-    paragraphElement.textContent = '';
+    if (errorMessage) {
+      setErrorMessage('');
+    }
   };
 
   return (
@@ -55,8 +48,9 @@ const AddItemForm = ({ handleAddItems }) => {
         value={itemText}
         onChange={handleChange}
         autoFocus={true}
+        className={errorMessage ? 'invalid-input' : ''}
       />
-      <p></p>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
       <Button text="Add to list" />
     </form>
   );
