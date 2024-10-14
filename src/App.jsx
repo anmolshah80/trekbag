@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { INITIAL_ITEMS } from '@/lib/constants';
 
