@@ -5,7 +5,7 @@ const Footer = () => {
     <footer>
       <small>&copy; {currentYear} Trekbag</small>
       <p>
-        Version <strong>1.5</strong>
+        Version <strong>1.0</strong>
       </p>
     </footer>
   );

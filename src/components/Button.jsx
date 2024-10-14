@@ -1,7 +1,12 @@
-const Button = ({ text, type }) => {
-  const secondaryButtonClassName = type === 'secondary' ? 'btn--secondary' : '';
+const Button = ({ text, buttonType, onClick }) => {
+  const secondaryButtonClassName =
+    buttonType === 'secondary' ? 'btn--secondary' : '';
 
-  return <button className={`btn ${secondaryButtonClassName}`}>{text}</button>;
+  return (
+    <button className={`btn ${secondaryButtonClassName}`} onClick={onClick}>
+      {text}
+    </button>
+  );
 };
 
 export default Button;

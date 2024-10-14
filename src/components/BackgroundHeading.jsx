@@ -1,5 +1,5 @@
 const BackgroundHeading = () => {
-  return <div>BackgroundHeading</div>;
+  return <h1>Trekbag</h1>;
 };
 
 export default BackgroundHeading;
