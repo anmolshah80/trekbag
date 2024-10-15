@@ -2,6 +2,8 @@ import { useState } from 'react';
 import Select from 'react-select';
 import { MdDelete } from 'react-icons/md';
 
+import { SORT_OPTIONS } from '@/lib/constants';
+
 const Item = ({ item, handleDeleteItem, handleToggleItem }) => {
   const { name, packed } = item;
 
@@ -23,36 +25,15 @@ const Item = ({ item, handleDeleteItem, handleToggleItem }) => {
   );
 };
 
-const SortOptions = ({ setSortBy }) => {
-  const options = [
-    {
-      label: 'Sort by default',
-      value: 'default',
-    },
-    {
-      label: 'Sort by name',
-      value: 'name',
-    },
-    {
-      label: 'Sort by packed',
-      value: 'packed',
-    },
-    {
-      label: 'Sort by unpacked',
-      value: 'unpacked',
-    },
-  ];
-
-  return (
-    <section className="sorting">
-      <Select
-        options={options}
-        defaultValue={options[0]}
-        onChange={(option) => setSortBy(option.value)}
-      />
-    </section>
-  );
-};
+const RenderSortOptions = ({ setSortBy }) => (
+  <section className="sorting">
+    <Select
+      options={SORT_OPTIONS}
+      defaultValue={SORT_OPTIONS[0]}
+      onChange={(option) => setSortBy(option.value)}
+    />
+  </section>
+);
 
 const ItemList = ({ items, handleDeleteItem, handleToggleItem }) => {
   const [sortBy, setSortBy] = useState('default');
@@ -83,7 +64,7 @@ const ItemList = ({ items, handleDeleteItem, handleToggleItem }) => {
 
   return (
     <ul className="item-list">
-      <SortOptions setSortBy={setSortBy} />
+      <RenderSortOptions setSortBy={setSortBy} />
       {sortedItems.map((item) => (
         <Item
           key={item.id}
