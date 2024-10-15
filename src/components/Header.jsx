@@ -1,13 +1,13 @@
 import Logo from '@/components/Logo';
 import Counter from '@/components/Counter';
 
-const Header = ({ completedItemsCount, totalItems }) => {
+const Header = ({ numberOfItemsPacked, totalNumberOfItems }) => {
   return (
     <header>
       <Logo />
       <Counter
-        completedItemsCount={completedItemsCount}
-        totalItems={totalItems}
+        numberOfItemsPacked={numberOfItemsPacked}
+        totalNumberOfItems={totalNumberOfItems}
       />
     </header>
   );

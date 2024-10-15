@@ -6,3 +6,4 @@
 - Add toggle functionality to mark the items as complete or incomplete
 - Update the counter in the header to keep track of total items in the list and the number of items that have been marked as packed
 - Add delete icon to delete an item from the list
+- Sort items by `default` or the item's `name` (in _ascending_ order), or based on its `packed` and `unpacked` status
