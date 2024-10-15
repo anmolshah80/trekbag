@@ -11,9 +11,9 @@ import Sidebar from '@/components/sidebar/Sidebar';
 function App() {
   const [items, setItems] = useState(INITIAL_ITEMS);
 
-  const completedItemsCount = items.filter((item) => item.packed).length;
+  const numberOfItemsPacked = items.filter((item) => item.packed).length;
 
-  const totalItems = items.length;
+  const totalNumberOfItems = items.length;
 
   const handleAddItem = (newItemText) => {
     const newItem = {
@@ -81,8 +81,8 @@ function App() {
       <main>
         <Header
           items={items}
-          completedItemsCount={completedItemsCount}
-          totalItems={totalItems}
+          numberOfItemsPacked={numberOfItemsPacked}
+          totalNumberOfItems={totalNumberOfItems}
         />
         <ItemList
           items={items}

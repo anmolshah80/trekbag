@@ -1,9 +1,9 @@
-const Counter = ({ completedItemsCount, totalItems }) => {
-  if (totalItems === 0) return null;
+const Counter = ({ numberOfItemsPacked, totalNumberOfItems }) => {
+  if (totalNumberOfItems === 0) return null;
 
   return (
     <p>
-      <strong>{completedItemsCount}</strong> / {totalItems} items packed
+      <strong>{numberOfItemsPacked}</strong> / {totalNumberOfItems} items packed
     </p>
   );
 };
