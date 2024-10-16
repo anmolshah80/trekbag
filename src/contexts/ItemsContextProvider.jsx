@@ -6,7 +6,7 @@ export const ItemsContext = createContext();
 
 const ItemsContextProvider = ({ children }) => {
   const [items, setItems] = useState(() => {
-    return JSON.parse(localStorage.getItem('trekbag-items') || INITIAL_ITEMS);
+    return JSON.parse(localStorage.getItem('trekbag-items')) || INITIAL_ITEMS;
   });
 
   const numberOfItemsPacked = items.filter((item) => item.packed).length;
