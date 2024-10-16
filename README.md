@@ -10,6 +10,8 @@
 - Save items to `localStorage`
 - Create an `ItemsContextProvider` to wrap the _Header_, _ItemsList_ and _Sidebar_ components to avoid `props drilling`
 - Create a `useItemsContext` custom hook to centralise the imports of _useContext_ react hook and _ItemsContext_, and check whether the context provider wraps the components before using the context object in those components
+- Install and configure `zustand` to manage the state instead of using `context API`
+- Create a zustand `itemsStore` to place all the implementations for the methods such as _add_, _delete_, _toggle_, _mark_ and _reset_ items
 
 ## To-dos
 

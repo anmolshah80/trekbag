@@ -3,7 +3,8 @@ import { useState, useMemo } from 'react';
 import Select from 'react-select';
 import { MdDelete } from 'react-icons/md';
 
-import { useItemsContext } from '@/lib/hooks';
+import { useItemsStore } from '@/stores/itemsStore';
+
 import { SORT_OPTIONS } from '@/lib/constants';
 
 const Item = ({ item, handleDeleteItem, handleToggleItem }) => {
@@ -38,9 +39,11 @@ const RenderSortOptions = ({ setSortBy }) => (
 );
 
 const ItemList = () => {
-  const [sortBy, setSortBy] = useState('default');
+  const items = useItemsStore((state) => state.items);
+  const deleteItem = useItemsStore((state) => state.deleteItem);
+  const toggleItem = useItemsStore((state) => state.toggleItem);
 
-  const { items, handleDeleteItem, handleToggleItem } = useItemsContext();
+  const [sortBy, setSortBy] = useState('default');
 
   const sortedItems = useMemo(
     () =>
@@ -77,8 +80,8 @@ const ItemList = () => {
         <Item
           key={item.id}
           item={item}
-          handleDeleteItem={handleDeleteItem}
-          handleToggleItem={handleToggleItem}
+          handleDeleteItem={deleteItem}
+          handleToggleItem={toggleItem}
         />
       ))}
     </ul>
