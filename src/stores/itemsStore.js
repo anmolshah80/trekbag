@@ -51,25 +51,25 @@ export const useItemsStore = create(
       },
       markAllAsIncomplete: () => {
         set((state) => {
-          const newItems = state.items.map((item) => ({
+          const unpackedItems = state.items.map((item) => ({
             ...item,
             packed: false,
           }));
 
           return {
-            items: newItems,
+            items: unpackedItems,
           };
         });
       },
       markAllAsComplete: () => {
         set((state) => {
-          const markedItems = state.items.map((item) => ({
+          const packedItems = state.items.map((item) => ({
             ...item,
             packed: true,
           }));
 
           return {
-            items: markedItems,
+            items: packedItems,
           };
         });
       },
