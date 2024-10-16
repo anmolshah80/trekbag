@@ -42,14 +42,6 @@ const ItemList = () => {
 
   const { items, handleDeleteItem, handleToggleItem } = useItemsContext();
 
-  if (items.length === 0) {
-    return (
-      <p className="empty-list">
-        Your list is currently empty. Add your first item to get started!
-      </p>
-    );
-  }
-
   const sortedItems = useMemo(
     () =>
       [...items].sort((a, b) => {
@@ -69,6 +61,14 @@ const ItemList = () => {
       }),
     [items, sortBy],
   );
+
+  if (items.length === 0) {
+    return (
+      <p className="empty-list">
+        Your list is currently empty. Add your first item to get started!
+      </p>
+    );
+  }
 
   return (
     <ul className="item-list">
