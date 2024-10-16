@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
+
 import Select from 'react-select';
 import { MdDelete } from 'react-icons/md';
 
+import { useItemsContext } from '@/lib/hooks';
 import { SORT_OPTIONS } from '@/lib/constants';
 
 const Item = ({ item, handleDeleteItem, handleToggleItem }) => {
@@ -35,8 +37,10 @@ const RenderSortOptions = ({ setSortBy }) => (
   </section>
 );
 
-const ItemList = ({ items, handleDeleteItem, handleToggleItem }) => {
+const ItemList = () => {
   const [sortBy, setSortBy] = useState('default');
+
+  const { items, handleDeleteItem, handleToggleItem } = useItemsContext();
 
   if (items.length === 0) {
     return (
@@ -46,21 +50,25 @@ const ItemList = ({ items, handleDeleteItem, handleToggleItem }) => {
     );
   }
 
-  const sortedItems = [...items].sort((a, b) => {
-    if (sortBy === 'packed') {
-      return b.packed - a.packed;
-    }
+  const sortedItems = useMemo(
+    () =>
+      [...items].sort((a, b) => {
+        if (sortBy === 'packed') {
+          return b.packed - a.packed;
+        }
 
-    if (sortBy === 'unpacked') {
-      return a.packed - b.packed;
-    }
+        if (sortBy === 'unpacked') {
+          return a.packed - b.packed;
+        }
 
-    if (sortBy === 'name') {
-      return a.name.localeCompare(b.name);
-    }
+        if (sortBy === 'name') {
+          return a.name.localeCompare(b.name);
+        }
 
-    return a.id - b.id;
-  });
+        return a.id - b.id;
+      }),
+    [items, sortBy],
+  );
 
   return (
     <ul className="item-list">

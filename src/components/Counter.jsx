@@ -1,4 +1,8 @@
-const Counter = ({ numberOfItemsPacked, totalNumberOfItems }) => {
+import { useItemsContext } from '@/lib/hooks';
+
+const Counter = () => {
+  const { totalNumberOfItems, numberOfItemsPacked } = useItemsContext();
+
   if (totalNumberOfItems === 0) return null;
 
   return (
